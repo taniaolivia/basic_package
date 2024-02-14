@@ -1,3 +1,3 @@
-const showText = require("basic");
+const showText = require("basic-tania");
 
 console.log(showText());
