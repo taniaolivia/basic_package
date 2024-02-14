@@ -6,4 +6,10 @@ function showText() {
    return text;
 }
 
-module.exports = showText;
+
+function showText1() {
+   let text = "Hello World2!";
+
+   return text;
+} 
+module.exports = {showText,showText1};
