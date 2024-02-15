@@ -1,22 +1,82 @@
 <!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To do List</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .input {
+            padding: 8px;
+            width: 60%;
+            margin-bottom: 10px;
+        }
+
+        .tasks {
+            list-style: none;
+            padding: 0;
+        }
+
+        .tasks li {
+            background-color: #f9f9f9;
+            padding: 10px;
+            margin-bottom: 8px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .tasks li button {
+            background-color: #ff5959;
+            color: #fff;
+            border: none;
+            padding: 6px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-    <h1>To do List</h1>
+    <div class="container">
+        <h1>To do List</h1>
 
-    <input type="text" name="task" placeholder="Add a task" class="input"/>
+        <input type="text" name="task" placeholder="Add a task" class="input"/>
 
-    <ul class="tasks"></ul>
+        <ul class="tasks"></ul>
 
-    <button type="submit" onclick="addTask()">Add</button>
+        <button type="button" onclick="addTask()">Add</button>
+    </div>
 
-    <script type="text/javascript">
+    <script>
         function getList(newTask) {
             let task = document.createElement("li");
-            task.innerHTML = newTask;
+            task.innerHTML = `
+                <span>${newTask}</span>
+                <button onclick="removeTask(this)">Remove</button>
+            `;
 
             let list = document.querySelector(".tasks");
             list.appendChild(task);
@@ -25,9 +85,17 @@
         }
 
         function addTask() {
-            let newTask = document.querySelector(".input").value;
+            let newTask = document.querySelector(".input").value.trim();
 
-            this.getList(newTask);
+            if (newTask !== "") {
+                getList(newTask);
+            }
+        }
+
+        function removeTask(button) {
+            let task = button.parentElement;
+            task.remove();
         }
     </script>
 </body>
+</html>
