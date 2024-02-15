@@ -1,5 +1,3 @@
-// Fonction qui retour Hello World!
-// La fonction doit être exporter
 function showText() {
    let text = "Hello World!";
 
@@ -12,4 +10,22 @@ function showText1() {
 
    return text;
 } 
-module.exports = {showText,showText1};
+module.exports = { showText,showText1 };
+
+/****************************************/
+/****************************************/
+/****************************************/
+
+const express = require('express');
+
+const hostname = "0.0.0.0";
+const port = 3000;
+
+const server = express();
+
+server.use(express.urlencoded());
+server.use(express.json());
+
+server.use('/', express.static(__dirname + '/'));
+
+server.listen(port, hostname);
