@@ -3,6 +3,9 @@
 ## Developer
 Tania OLIVIA
 
+## Developer contributes in Tania's github
+Nihel OUANASSI
+
 ## Steps to do to launch the application
 
 ### Install all the packages
