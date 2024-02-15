@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do List</title>
+</head>
+<body>
+    <h1>To do List</h1>
+
+    <input type="text" name="task" placeholder="Add a task" class="input"/>
+
+    <ul class="tasks"></ul>
+
+    <button type="submit" onclick="addTask()">Add</button>
+
+    <script type="text/javascript">
+        function getList(newTask) {
+            let task = document.createElement("li");
+            task.innerHTML = newTask;
+
+            let list = document.querySelector(".tasks");
+            list.appendChild(task);
+
+            document.querySelector(".input").value = "";
+        }
+
+        function addTask() {
+            let newTask = document.querySelector(".input").value;
+
+            this.getList(newTask);
+        }
+    </script>
+</body>
